@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Dicionário - Cliente</string>
+    <string name="title_main_activity">Enter a word below and tap "search":</string>
+    <string name="label_server">Server:</string>
+    <string name="label_socket">0.0.0.0/1234</string>
+    <string name="label_msg">Word</string>
+    <string name="label_answer">Meaning</string>
+    <string name="label_search">Search</string>
+
+    <string name="exemplo">_</string>
+
+    <string name="word">Word</string>
+    <string name="meaning">Meaning</string>
+    <string name="word_not_found">Word not found</string>
+    <string name="add_word">Add word</string>
+    <string name="list_words">List Words</string>
+    <string name="insert_word">Insert Word</string>
+
+    <string name="word_inserted">Word Inserted</string>
+</resources>
