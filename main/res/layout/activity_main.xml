@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,12 +7,9 @@
     tools:context="com.example.ivan.cloudmobile.MainActivity">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="14dp"
+        android:layout_margin="18dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -22,19 +19,21 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/label_server"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:id="@+id/socketName"
                 android:ems="10"
                 android:hint="@string/label_socket"
-                android:inputType="phone" />
+                android:inputType="text" />
         </LinearLayout>
 
         <TextView
@@ -54,17 +53,18 @@
             android:id="@+id/layout_1">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:id="@+id/wordET"
-                android:ems="8"
                 android:hint="@string/label_msg"
                 android:inputType="text" />
 
             <Button
                 android:id="@+id/search_button"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/label_search" />
         </LinearLayout>
 
@@ -87,11 +87,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:id="@+id/title_meaningBox"
-                android:text="@string/exemplo"
                 android:textSize="18sp"
                 android:selectAllOnFocus="true"
                 android:textStyle="bold" android:background="@drawable/rect"/>
         </LinearLayout>
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

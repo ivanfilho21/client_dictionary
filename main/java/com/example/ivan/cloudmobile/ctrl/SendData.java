@@ -1,21 +1,20 @@
 package com.example.ivan.cloudmobile.ctrl;
 
+import android.content.Context;
+
+import com.example.ivan.cloudmobile.R;
+
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public abstract class SendData {
 
-    static String sendData(String socketConnection, String obj) {
-        String info[] = socketConnection.split("[/]");
-        String answer = "cannot reach server";
+    static String sendData(Context context, String socketConnection, String obj) {
+        String info[] = socketConnection.split(":");
+        String answer = context.getString(R.string.server_error);
 
         if (info.length == 2) {
             String address = info[0];

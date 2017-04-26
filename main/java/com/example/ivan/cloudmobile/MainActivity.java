@@ -1,13 +1,11 @@
 package com.example.ivan.cloudmobile;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,16 +13,7 @@ import android.view.View;
 import android.widget.*;
 
 import com.example.ivan.cloudmobile.ctrl.AsyncAction;
-import com.example.ivan.cloudmobile.ctrl.SendData;
 import com.example.ivan.cloudmobile.ctrl.Utils;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //contexto, mensagem, titulo, indeterminado true, cancelavel falso?
         //progressDialog = ProgressDialog.show(this, "Searching word.", "Please Wait...", true, false);
 
-        progressDialog.setMessage("Searching Word.");
-        progressDialog.setTitle("Please Wait...");
+        progressDialog.setMessage(getString(R.string.progress_tittle_search));
+        progressDialog.setTitle(getString(R.string.wait));
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.show();
@@ -98,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else {
                 try {
                     showProgressDialog();
-                    new AsyncAction(server, word).execute();
+                    new AsyncAction(this, server, word).execute();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -119,6 +108,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             case R.id.list_words_item_menu:
                 startActivity(listWordsActivity);
+                return true;
+            case R.id.clear_words:
+                Utils.clearArrays();
+                Toast.makeText(this, getString(R.string.clear_words_success), Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.exit_app:
+                System.exit(1);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

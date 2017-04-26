@@ -6,7 +6,14 @@
         android:title="@string/add_word" />
     <item
         android:id="@+id/list_words_item_menu"
-        android:title="@string/list_words"/>
+        android:title="@string/list_words" />
+    <item
+        android:id="@+id/clear_words"
+        android:title="@string/clear_words" />
+
+    <item
+        android:id="@+id/exit_app"
+        android:title="@string/exit" />
 
 
 </menu>

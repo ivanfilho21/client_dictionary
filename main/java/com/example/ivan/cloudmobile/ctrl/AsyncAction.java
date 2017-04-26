@@ -1,5 +1,6 @@
 package com.example.ivan.cloudmobile.ctrl;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import com.example.ivan.cloudmobile.MainActivity;
 import com.example.ivan.cloudmobile.R;
@@ -7,10 +8,12 @@ import com.example.ivan.cloudmobile.R;
 public class AsyncAction extends AsyncTask<String, Void, String> {
 
     private String serverAddress, word;
+    private Context context;
 
-    public AsyncAction(String serverAddress, String word) {
+    public AsyncAction(Context context, String serverAddress, String word) {
         this.serverAddress = serverAddress;
         this.word = word;
+        this.context = context;
     }
 
     protected String doInBackground(String... args) {
@@ -20,7 +23,7 @@ public class AsyncAction extends AsyncTask<String, Void, String> {
             Thread.sleep(2000);
         } catch (InterruptedException e) { e.printStackTrace(); }
         */
-        return SendData.sendData(serverAddress, word);
+        return SendData.sendData(context, serverAddress, word);
     }
 
     /*
@@ -31,31 +34,12 @@ public class AsyncAction extends AsyncTask<String, Void, String> {
         if (MainActivity.progressDialog != null) {
             MainActivity.progressDialog.dismiss();
         }
-        if (result.equalsIgnoreCase("cannot reach server")) {
-            MainActivity.showAlertDialog("Error", result);
+        if (result.equalsIgnoreCase(context.getString(R.string.server_error))) {
+            MainActivity.showAlertDialog(context.getString(R.string.error), result);
         }
-        else if (result.equalsIgnoreCase("word not found"))
-            MainActivity.meaningTV.setText(R.string.word_not_found);
+        else if (result.equalsIgnoreCase("word not found\n"))
+            MainActivity.meaningTV.setText(context.getString(R.string.word_not_found));
         else
             MainActivity.meaningTV.setText(result);
     }
-
-    //Exemplo de Dialogo que espera resposta
-    /*
-    new AlertDialog.Builder(context)
-                    .setTitle("Delete entry")
-                    .setMessage("Are you sure you want to delete this entry?")
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // continue with delete
-                        }
-                    })
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // do nothing
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
-     */
 }

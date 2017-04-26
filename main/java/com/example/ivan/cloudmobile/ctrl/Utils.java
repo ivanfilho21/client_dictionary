@@ -30,7 +30,6 @@ public class Utils {
 
     private static void initArrays() {
         String res[] = readFromFile(DICTIONARY_PATH).split("[)]");
-
         wordArray = new ArrayList<>();
         meaningArray = new ArrayList<>();
 
@@ -41,13 +40,14 @@ public class Utils {
                 meaningArray.add(res[i]);
         }
 
-        //
         for (int i = 0; i < wordArray.size(); i++)
             System.out.println(">"+wordArray.get(i) +"<");
 
         for (int i = 0; i < meaningArray.size(); i++)
             System.out.println(">>"+meaningArray.get(i) +"<<");
     }
+
+    public static void clearArrays() { wordArray = new ArrayList<>(); meaningArray = new ArrayList<>(); writeToFile(DICTIONARY_PATH); }
 
     public static int searchWordLocally(String word) {
         initArrays();
@@ -97,6 +97,15 @@ public class Utils {
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(path, Context.MODE_APPEND));
             outputStreamWriter.write(data);
+            outputStreamWriter.close();
+        }
+        catch (IOException ignored) {}
+    }
+
+    private static void writeToFile(String path) {
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(path, Context.MODE_PRIVATE));
+            outputStreamWriter.write("");
             outputStreamWriter.close();
         }
         catch (IOException ignored) {}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dicionário - Cliente</string>
+    <string name="add_word">Adicionar Palavra</string>
+    <string name="insert_word">Inserir Palavra</string>
+    <string name="label_answer">Significado</string>
+    <string name="label_msg">Palavra</string>
+    <string name="label_search">Procurar</string>
+    <string name="label_server">Servidor:</string>
+    <string name="list_words">Listar Palavras</string>
+    <string name="meaning">Significado:</string>
+    <string name="title_main_activity">Digite uma palavra abaixo e pressione \"procurar\":</string>
+    <string name="word">Palavra:</string>
+    <string name="word_inserted">Palavra Inserida</string>
+    <string name="word_not_found">Palavra não encontrada</string>
+    <string name="error">Erro</string>
+    <string name="server_error">servidor não encontrado</string>
+    <string name="progress_tittle_search">Procurando palavra</string>
+    <string name="wait">Aguarde</string>
+    <string name="no_words_yet">Nenhuma Palavra Ainda!</string>
+    <string name="clear_words">Limpar Palavras</string>
+    <string name="exit">Sair</string>
+    <string name="clear_words_success">Palavras foram apagadas</string>
+</resources>
