@@ -1,15 +1,10 @@
 
 # Client Dictionary
-
-> by Ivan Filho
-
-* It is an app for requesting meanings of words, as a client.
+> A simple app for requesting meanings of words from the server.
 
 ## Explanation
-
-* Access: ![screenshot](Descricao.pdf)
+* Access "Descricao.pdf" for more details.
 
 ## Links
-
 * Server: https://github.com/ivanfilho21/server_dictionary
 * Client: https://github.com/ivanfilho21/client_dictionary
